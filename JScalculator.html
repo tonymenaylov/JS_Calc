@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1> 
+    <input value="0" id="res" onkeypress="addDigit()"><br>
+<button onclick="addDigit()">7</button>
+<button onclick="addDigit()">8</button>
+<button onclick="addDigit()">9</button><br>
+<button onclick="addDigit()">4</button>
+<button onclick="addDigit()">5</button>
+<button onclick="addDigit()">6</button><br>
+<button onclick="addDigit()">1</button>
+<button onclick="addDigit()">2</button>
+<button onclick="addDigit()">3</button><br>
+<button onclick="doOper()">+</button>
+<button onclick="doOper()">-</button>
+<button onclick="doCalc()">=</button>
+<button onclick="addDigit()">0</button>
+<button onclick="addDigit()">.</button>
+<button onclick="addDigit()">*</button>
+<button onclick="clear1()">c</button>
+</h1>
+
+<script>
+let cleanFlag = false
+let numMem = 0
+let operMem = ""
+function doCalc(){
+    console.log(numMem)
+    console.log(operMem)
+    console.log(res.value)
+    operMem == "+" && (res.value = (+res.value+ +numMem))
+    operMem == "-" && (res.value = (+res.value -+res.value))
+    operMem == "*" && (res.value *= numMem)
+}
+
+
+
+
+function doOper() {
+    cleanFlag = true
+    operMem = event.target.innerText 
+  }
+    function addDigit(){
+        if (res.value == "0" || cleanFlag) {
+        if (cleanFlag) {
+            numMem = res.value
+            console.log(numMem)
+            console.log(operMem)
+        }
+        cleanFlag = false
+        res.value = ""
+        }
+
+        res.value += event.target.innerText 
+    }
+        
+
+    </script>
+   
+
+
+
+
+    
+
+
+
+
+
+
+    
+</body>
+</html>
